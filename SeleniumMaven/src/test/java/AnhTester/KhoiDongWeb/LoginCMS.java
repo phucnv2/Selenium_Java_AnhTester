@@ -22,7 +22,7 @@ public class LoginCMS {
     driver.get("https://crm.anhtester.com/admin/authentication");
 
     // Bắt web element
-    
+
     WebElement inputEmail = driver.findElement(By.xpath("//input[@id='email']"));
     inputEmail.sendKeys("admin@example.com");
 
