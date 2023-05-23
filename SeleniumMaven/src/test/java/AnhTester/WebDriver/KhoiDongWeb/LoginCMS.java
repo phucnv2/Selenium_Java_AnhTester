@@ -1,4 +1,4 @@
-package AnhTester.KhoiDongWeb;
+package AnhTester.WebDriver.KhoiDongWeb;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

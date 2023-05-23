@@ -1,7 +1,8 @@
-package AnhTester.ThucHanh;
+package AnhTester.thuchanh;
 
 import AnhTester.common.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -30,8 +31,27 @@ public class ClientCRM extends BaseTest {
     driver.findElement(By.xpath("//input[@id='company_name']")).sendKeys("Chunn_order");
     driver.findElement(By.xpath("//div[@id='s2id_created_by']//a")).click();
     driver.findElement(By.xpath("//div[@id='select2-drop']//input")).sendKeys("Michael Wood", Keys.ENTER);
+    driver.findElement(By.xpath("//textarea[@id='address']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='city']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='state']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='zip']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='country']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("0965330909");
+    driver.findElement(By.xpath("//input[@id='website']")).sendKeys("phuc.com");
+    driver.findElement(By.xpath("//input[@id='vat_number']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//input[@id='gst_number']")).sendKeys("Phúc test");
+    driver.findElement(By.xpath("//li[@class='select2-search-field']//input")).click();
+    driver.findElement(By.xpath("//li[@class='select2-search-field']//input")).sendKeys("VIP",Keys.ENTER);
+
+    // scroll xuống dưới
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("arguments[0].scrollIntoView(false);",driver.findElement(By.xpath("//label[normalize-space()='Disable online payment']")));
 
 
+    driver.findElement(By.xpath("//div[@id='s2id_currency']")).click();
+    driver.findElement(By.xpath("//div[@id='select2-drop']//div[@class='select2-search']//input")).sendKeys("XTS",Keys.ENTER);
+
+    driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
 
   public static void main(String[] args) {
