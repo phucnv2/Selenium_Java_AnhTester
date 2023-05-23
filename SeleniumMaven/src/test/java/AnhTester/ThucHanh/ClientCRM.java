@@ -25,10 +25,10 @@ public class ClientCRM extends BaseTest {
     sleep(1);
     driver.findElement(By.xpath("//a[contains(text(),'Clients')]")).click();
   }
-  public static void addButtonClient(){
+  public static void addButtonClient(String clientName){
     driver.findElement(By.xpath("//a[normalize-space()='Add client']")).click();
     sleep(2);
-    driver.findElement(By.xpath("//input[@id='company_name']")).sendKeys("Chunn_order");
+    driver.findElement(By.xpath("//input[@id='company_name']")).sendKeys(clientName);
     driver.findElement(By.xpath("//div[@id='s2id_created_by']//a")).click();
     driver.findElement(By.xpath("//div[@id='select2-drop']//input")).sendKeys("Michael Wood", Keys.ENTER);
     driver.findElement(By.xpath("//textarea[@id='address']")).sendKeys("Phúc test");
@@ -53,12 +53,21 @@ public class ClientCRM extends BaseTest {
 
     driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
+  public static void checkClientAffterAdd(String clientNameSearch){
+    sleep(2);
+    driver.findElement(By.xpath("//div[@id='client-table_filter']//input")).sendKeys(clientNameSearch);
+    sleep(2);
+    String checkClientName = driver.findElement(By.xpath("//table[@id='client-table']//tr//td[2]")).getText();
+    sleep(2);
+    System.out.printf(clientNameSearch);
+  }
 
   public static void main(String[] args) {
     createDriver();
     loginCRM();
     openClientPage();
-    addButtonClient();
+    addButtonClient("Kuro Phuc");
+    checkClientAffterAdd("Kuro Phuc");
     closeDriver();
   }
 }
