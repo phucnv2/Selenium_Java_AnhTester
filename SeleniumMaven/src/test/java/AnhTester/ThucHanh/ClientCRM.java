@@ -26,6 +26,9 @@ public class ClientCRM extends BaseTest {
     driver.findElement(By.xpath("//a[contains(text(),'Clients')]")).click();
   }
   public static void addButtonClient(String clientName){
+    driver.findElement(By.xpath("//span[normalize-space()='Clients']")).click();
+    sleep(1);
+    driver.findElement(By.xpath("//a[contains(text(),'Clients')]")).click();
     driver.findElement(By.xpath("//a[normalize-space()='Add client']")).click();
     sleep(2);
     driver.findElement(By.xpath("//input[@id='company_name']")).sendKeys(clientName);
